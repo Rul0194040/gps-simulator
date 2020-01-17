@@ -47,5 +47,11 @@ module.exports = (fastify, opts, done) => {
     handler: ubicationsController.populate,
   });
 
+  fastify.route({
+    method: 'PATCH',
+    url: '/ubications/:id',
+    handler: ubicationsController.update,
+  });
+
   done();
 };
