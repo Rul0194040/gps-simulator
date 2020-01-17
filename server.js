@@ -13,7 +13,7 @@ const routes = require('./api/config/routes');
 const swagger = require('./api/config/swagger');
 
 // Connection with MongoDB
-mongoose.connect('mongodb://localhost:27017/hoy-pasa-db', {
+mongoose.connect('mongodb://localhost:27017/gps-simulator', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

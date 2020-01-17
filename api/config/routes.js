@@ -7,6 +7,7 @@ const isLoggedWithJwt = require('../policies/is-logged-with-jwt');
 
 // Controllers
 const usersController = require('../controllers/users');
+const ubicationsController = require('../controllers/ubications');
 
 // Json Schemas
 const usersSchema = require('../json-schemas/users/');
@@ -32,6 +33,18 @@ module.exports = (fastify, opts, done) => {
     schema: usersSchema.getOne,
     preValidation: isLoggedWithJwt,
     handler: usersController.getOne,
+  });
+
+  fastify.route({
+    method: 'GET',
+    url: '/ubications',
+    handler: ubicationsController.getAll,
+  });
+
+  fastify.route({
+    method: 'GET',
+    url: '/ubications/populate',
+    handler: ubicationsController.populate,
   });
 
   done();
